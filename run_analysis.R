@@ -64,9 +64,9 @@ colnames(Total_data) <- c("subject", "activity", Target_features_names)
 #  creates a data set with the average of each variable for each activity and each subject.
 ##_____________________________________________________________________________________
 
-Total_data = aggregate(Total_data, by=list(activity = Total_data$activity, subject=Total_data$subject), FUN =mean)
-Total_data[,3] = NULL
-Total_data[,3] = NULL
+Total_data <- aggregate(Total_data, by=list(activity = Total_data$activity, subject=Total_data$subject), FUN =mean)
+Total_data[,3] <- NULL
+Total_data[,3] <- NULL
 
 #  creates a Txt File with the Dataset
 ##_____________________________________________________________________________________
