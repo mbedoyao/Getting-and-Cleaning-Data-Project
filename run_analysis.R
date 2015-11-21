@@ -16,6 +16,14 @@ if (!file.exists("UCI HAR Dataset")) {
   unzip(TmpFile) 
 }
 
+# Load activity labels & the names of features from the files:activity_labels.txt,features.txt
+##_____________________________________________________________________________________
+
+activityLabels <- read.table("UCI HAR Dataset/activity_labels.txt")
+activityLabels[,2] <- as.character(activityLabels[,2])
+features <- read.table("UCI HAR Dataset/features.txt")
+features[,2] <- as.character(features[,2])
+
 # Extracts only the measurements on the mean and standard deviation for each measurement. 
 ##_____________________________________________________________________________________
 
@@ -41,14 +49,6 @@ subject_test <- read.table("UCI HAR Dataset/test/subject_test.txt")
 Total_train <- cbind(subject_train, y_train, x_train)
 Total_test <- cbind(subject_test, y_test, x_test)
 Total_data <- rbind(Total_train, Total_test)
-
-# Load activity labels & features
-##_____________________________________________________________________________________
-
-activityLabels <- read.table("UCI HAR Dataset/activity_labels.txt")
-activityLabels[,2] <- as.character(activityLabels[,2])
-features <- read.table("UCI HAR Dataset/features.txt")
-features[,2] <- as.character(features[,2])
 
 
 #Uses descriptive activity names to name the activities in the data set
